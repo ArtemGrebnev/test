@@ -10,17 +10,16 @@
 	<?
 	include_once("db.php");
 $limit = 19;
-$result= mysql_query( "SELECT id_users,user, age FROM users  
+$result= mysql_query( "SELECT id_users,user, age, gorod FROM users 
+						LEFT JOIN City ON users.Id_City = City.id ORDER BY id_users ASC
                           LIMIT $limit" );
-$gorod1= mysql_query("SELECT id,gorod FROM City 
-                        LIMIT $limit ");
-		 mysql_close();
-while($row= mysql_fetch_array($result)and $row1= mysql_fetch_array($gorod1))
+
+while($row= mysql_fetch_array($result))
 
 	{?>
 		 <p>Имя Пользователя: <?php echo $row['user']?></p>
 		  <p>Возраст: <?php echo $row['age']?></p>
-		 <p>Город: <?php echo $row1['gorod']?></p>
+		 <p>Город: <?php echo $row['gorod']?></p>
 	<?php } ?>
 	
 </body>

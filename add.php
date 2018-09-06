@@ -6,25 +6,25 @@
 <body>
 	<form method="post" action="add.php">
 Имя пользователя <br />
-	<input type="text" name="user" /><br />
+	<input type="text" name="user" required /><br />
 Возраст<br />
-	<input type="number" name="age" /><br />
+	<input type="number" name="age" min="10" max="100" required /><br />
 Город<br />
 <?php
 include_once("db.php");
-$sql = "SELECT * FROM city LIMIT 5";//Лимит - избежать дублирование городов при добавлении//
+$sql = "SELECT * FROM city ORDER BY gorod ASC";//Лимит - избежать дублирование городов при добавлении//
 $result_select = mysql_query($sql);
 
 //Выпадающий список городов из таблицы бд//
 
 echo "<select name = 'gorod'>";
 while($object = mysql_fetch_object($result_select)){
-echo "<option value = '$object->gorod' > $object->gorod </option>";
+echo "<option value = '$object->id' > $object->gorod </option>";
 }
 echo "</select>";
 ?>
 	<br />
-	<br><input type="submit" name="add" value"Добавить" />
+	<br><input type="submit" name="add" value="Добавить" />
 
 	</form>
 	
@@ -37,21 +37,19 @@ if(isset($_POST['add']))
 	$age= strip_tags(trim($_POST['age']));
 	$gorod1=strip_tags(trim($_POST['gorod']));
 	
-	mysql_query("INSERT INTO users(user, age) 
-			VALUES ('$user', '$age') ");
-	mysql_query("INSERT INTO City (gorod)
-				VALUES ('$gorod1') ");
+	mysql_query("INSERT INTO users(user, age, Id_City) 
+			VALUES ('$user', '$age','$gorod1') ");
 			
 	mysql_close();
 	echo "Пользователь добавлен";
 }
 
 ?>
-
+<br />
 <a href="index.php"> Вернуться к списку пользователей</a>
 							
 												
-	ALTER TABLE tabl_users AUTO_INCREMENT=5;						
+						
 							
 										
 														
