@@ -2,6 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<title> My site</title>
+	<link href="style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,9 +18,12 @@ $result= mysql_query( "SELECT id_users,user, age, gorod FROM users
 while($row= mysql_fetch_array($result))
 
 	{?>
-		 <p>Имя Пользователя: <?php echo $row['user']?></p>
-		  <p>Возраст: <?php echo $row['age']?></p>
-		 <p>Город: <?php echo $row['gorod']?></p>
-	<?php } ?>
-	
+		<div id="main" class="table">
+   <div id="first" class="td"> Имя Пользователя:<br />
+   <?php echo $row['user']?></div>
+		  <div id="second" class="td">Возраст:<br /> 
+		  <?php echo $row['age']?></div>
+		 <div id="third" class="td">Город:<br /> 
+		 <?php echo $row['gorod']?></div></div>
+	<?php } ?>	
 </body>
