@@ -4,7 +4,7 @@ $db = mysql_select_db("my bd");
 mysql_query("SET NAMES 'utf8' ");
 
 
-If(!$connection || !$db)
+if(!$connection || !$db)
 {
 	exit(mysql_error());
 
