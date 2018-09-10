@@ -1,43 +1,41 @@
-#sidebar {
-     background: #40E0D0;
-     float: left;
-     width: 20%;
-     height: 210px;
-}
-div.table{
-   height:0;
-}
-div.tr{
-   height:0;
-}
-/* не для IE */
-div.table[class] {height:auto; display: table;}
-div.tr[class] { height:auto; display: table-row;}
-div.td[class] {float:none; display: table-cell;}
-
-div.td{
-   height:100%; 
-   float:left;
-}
-#main{
-   width:100%;
-}
-#first{
-   position:relative;
-   z-index:1;
-   width:200px;
-}
-#second{
-   width:100%;
-   margin:0 -30% 0 -200px; 
-   padding:0 30% 0 200px;
-}
-/* не для IE */
-#second[id]{
-   width:auto;
-   margin:0;
-   padding:0;
-}
-#third{
-   width:30%;
-}
+	.container-str {
+			width:602px;
+			height:22px;
+			border: 1px solid silver;
+			overflow:hidden;
+			margin-left: 700px;
+			
+		}
+		.str-elm {
+			width:200px;
+			height:22px;
+			float: left;
+			text-align: center;
+			
+		}
+		
+		.line-wert {
+			border-right: 1px solid silver;
+		}
+		
+		.head-table {
+				color: #932B2B;
+				margin-top: 100px;
+				background: wheat;
+		}
+		.void {
+				margin-left: 700px;
+			
+		}
+		
+		.shift {
+			width:300;
+			height:300;
+			padding-top: 100;
+			margin-left: 700px;
+			margin-top: 100px;
+			background: wheat;
+			text-align: center;
+			border: 1px solid black;
+		}
+			
